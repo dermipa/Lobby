@@ -15,12 +15,17 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class MenuGUI implements Listener {
 
-    public static void openMenu(Player player) {
-        Inventory menu = Bukkit.createInventory(null, 9, "§bNavigator");
+    public MenuGUI(Main main) {
+    }
 
-        menu.setItem(2, createMenuItem(Material.RED_WOOL, "§cSpawn"));
-        menu.setItem(4, createMenuItem(Material.GREEN_WOOL, "§aPvP Arena"));
-        menu.setItem(6, createMenuItem(Material.BLUE_WOOL, "§9Parkour"));
+    public static void openMenu(Player player) {
+        Inventory menu = Bukkit.createInventory(null, 45, "§bNavigator");
+
+        menu.setItem(11, createMenuItem(Material.GRASS_BLOCK, "§aCityBuild"));
+        menu.setItem(15, createMenuItem(Material.IRON_SWORD, "§cSurvival"));
+        menu.setItem(22, createMenuItem(Material.MAGMA_CREAM, "§6Spawn"));
+        menu.setItem(29, createMenuItem(Material.BARRIER, "§4In Arbeit"));
+        menu.setItem(33, createMenuItem(Material.BARRIER, "§4In Arbeit"));
 
         player.openInventory(menu);
     }
@@ -47,16 +52,34 @@ public class MenuGUI implements Listener {
         if (clickedItem == null) return;
         FileConfiguration config = Main.getPlugin(Main.class).getConfig();
 
-        Location spawn = new Location(player.getWorld(), config.getDouble("locations.spawn.x"), config.getDouble("locations.spawn.y"), config.getDouble("locations.spawn.z"));
-        Location pvp = new Location(player.getWorld(), config.getDouble("locations.pvp.x"), config.getDouble("locations.pvp.y"), config.getDouble("locations.pvp.z"));
-        Location parkour = new Location(player.getWorld(), config.getDouble("locations.parkour.x"), config.getDouble("locations.parkour.y"), config.getDouble("locations.parkour.z"));
+        // Lese die Koordinaten und Blickrichtungen aus der Config
+        Location spawn = new Location(player.getWorld(),
+                config.getDouble("locations.spawn.x"),
+                config.getDouble("locations.spawn.y"),
+                config.getDouble("locations.spawn.z"),
+                (float) config.getDouble("locations.spawn.yaw", 0),
+                (float) config.getDouble("locations.spawn.pitch", 0));
 
-        if (clickedItem.getType() == Material.RED_WOOL) {
+        Location citybuild = new Location(player.getWorld(),
+                config.getDouble("locations.citybuild.x"),
+                config.getDouble("locations.citybuild.y"),
+                config.getDouble("locations.citybuild.z"),
+                (float) config.getDouble("locations.citybuild.yaw", 0),
+                (float) config.getDouble("locations.citybuild.pitch", 0));
+
+        Location survival = new Location(player.getWorld(),
+                config.getDouble("locations.survival.x"),
+                config.getDouble("locations.survival.y"),
+                config.getDouble("locations.survival.z"),
+                (float) config.getDouble("locations.survival.yaw", 0),
+                (float) config.getDouble("locations.survival.pitch", 0));
+
+        // Teleportation je nach Item
+        if (clickedItem.getType() == Material.MAGMA_CREAM) {
             player.teleport(spawn);
-        } else if (clickedItem.getType() == Material.GREEN_WOOL) {
-            player.teleport(pvp);
-        } else if (clickedItem.getType() == Material.BLUE_WOOL) {
-            player.teleport(parkour);
-        }
-    }
-}
+        } else if (clickedItem.getType() == Material.GRASS_BLOCK) {
+            player.teleport(citybuild);
+        } else if (clickedItem.getType() == Material.IRON_SWORD) {
+            player.teleport(survival);
+
+    }}}

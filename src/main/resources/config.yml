@@ -1,15 +1,21 @@
-profile-command: "say Ich bin im Menü!"
+friends-command: "friends"
 
 locations:
   spawn:
-    x: 0
-    y: 64
-    z: 0
-  pvp:
-    x: 100
-    y: 64
-    z: 100
-  parkour:
-    x: -50
-    y: 70
-    z: -50
+    x: 0.5
+    y: 51
+    z: 0.5
+    yaw: 0
+    pitch: 0
+  citybuild:
+    x: 0.5
+    y: 50
+    z: 34
+    yaw: 0
+    pitch: 3
+  survival:
+    x: 0.5
+    y: 50
+    z: -33
+    yaw: 180
+    pitch: 3

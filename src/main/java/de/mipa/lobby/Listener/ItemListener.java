@@ -1,8 +1,8 @@
 package de.mipa.lobby.Listener;
 
-import de.mipa.lobby.Util.MenuGUI;
 import de.mipa.lobby.Main;
 import de.mipa.lobby.Util.ItemManager;
+import de.mipa.lobby.Util.MenuGUI;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -27,8 +27,8 @@ public class ItemListener implements Listener {
         if (item.isSimilar(ItemManager.getNavigator())) {
             MenuGUI.openMenu(player);
             event.setCancelled(true);
-        } else if (item.isSimilar(ItemManager.getProfileHead(player))) {
-            String command = plugin.getConfig().getString("profile-command", "say Hallo!");
+        } else if (item.isSimilar(ItemManager.getFriendsHead(player))) {
+            String command = plugin.getConfig().getString("friends-command", "say Freunde-Menü geöffnet!");
             player.performCommand(command);
             event.setCancelled(true);
         }
