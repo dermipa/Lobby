@@ -1,0 +1,5 @@
+name: Lobby
+version: '1.0-SNAPSHOT'
+main: de.mipa.lobby.Main
+api-version: '1.21'
+authors: [ mipa ]
