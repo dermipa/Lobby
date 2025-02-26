@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -82,4 +83,13 @@ public class MenuGUI implements Listener {
         } else if (clickedItem.getType() == Material.IRON_SWORD) {
             player.teleport(survival);
 
-    }}}
+    }}
+
+    @EventHandler
+    public void onInventoryClick(InventoryClickEvent event) {
+        event.setCancelled(true); // Verhindert das Verschieben von Items im Inventar
+    }
+    @EventHandler
+    public void onItemDrop(PlayerDropItemEvent event) {
+        event.setCancelled(true); // Verhindert das Wegwerfen von Items
+    }}
