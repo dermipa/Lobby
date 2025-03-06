@@ -7,3 +7,6 @@ permissions:
   lobby.build:
     description: Damit kann man in der Lobby bauen
     default: false
+  lobby.sign.create:
+    description: Erlaubt das Erstellen von BungeeCord-Schildern
+    default: op

@@ -1,5 +1,4 @@
-package de.mipa.lobby.Util;
-
+package de.mipa.lobby.utils;
 
 import de.mipa.lobby.Main;
 import org.bukkit.entity.Player;
@@ -24,7 +23,6 @@ public class BungeeUtils {
             e.printStackTrace();
         }
 
-        // Sicherstellen, dass das Plugin nicht null ist
         player.sendPluginMessage(Main.getInstance(), "BungeeCord", b.toByteArray());
     }
 }
