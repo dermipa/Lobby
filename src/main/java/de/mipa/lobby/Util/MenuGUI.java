@@ -22,8 +22,8 @@ public class MenuGUI implements Listener {
     public static void openMenu(Player player) {
         Inventory menu = Bukkit.createInventory(null, 45, "§bNavigator");
 
-        menu.setItem(11, createMenuItem(Material.GRASS_BLOCK, "§aCityBuild"));
-        menu.setItem(15, createMenuItem(Material.IRON_SWORD, "§cSurvival"));
+        menu.setItem(11, createMenuItem(Material.IRON_SWORD, "§cSurvival"));
+        menu.setItem(15, createMenuItem(Material.BARRIER, "§4In Arbeit"));
         menu.setItem(22, createMenuItem(Material.MAGMA_CREAM, "§6Spawn"));
         menu.setItem(29, createMenuItem(Material.BARRIER, "§4In Arbeit"));
         menu.setItem(33, createMenuItem(Material.BARRIER, "§4In Arbeit"));
