@@ -42,7 +42,7 @@ public class DoubleJumpListener implements Listener {
 
         // Launchpad (Schleuderplatten mit Schleimblöcken)
         Location loc = player.getLocation().subtract(0, 1, 0);
-        if (loc.getBlock().getType() == Material.OAK_PRESSURE_PLATE) {
+        if (loc.getBlock().getType() == Material.SLIME_BLOCK) {
             player.setVelocity(new Vector(0, 2, 0));
             player.playSound(player.getLocation(), Sound.ENTITY_SLIME_JUMP, 1, 1);
             player.getWorld().spawnParticle(Particle.CRIT, player.getLocation(), 20);
