@@ -10,3 +10,6 @@ permissions:
   lobby.sign.create:
     description: Erlaubt das Erstellen von BungeeCord-Schildern
     default: op
+  lobby.sign.edit:
+    description: Erlaubt das Bearbeiten von Schildern
+    default: op
